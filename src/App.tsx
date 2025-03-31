@@ -11,7 +11,7 @@ export class App extends React.PureComponent<{}, State> {
 
   keyPressed: boolean = false;
 
-  handlerDocumentKeyboardClick = (event: KeyboardEvent) => {
+  handleKeyboardClick = (event: KeyboardEvent) => {
     this.setState({ key: event.key });
     if (!this.keyPressed) {
       this.keyPressed = true;
@@ -19,11 +19,11 @@ export class App extends React.PureComponent<{}, State> {
   };
 
   componentDidMount(): void {
-    document.addEventListener('keyup', this.handlerDocumentKeyboardClick);
+    document.addEventListener('keyup', this.handleKeyboardClick);
   }
 
   componentWillUnmount(): void {
-    document.removeEventListener('keyup', this.handlerDocumentKeyboardClick);
+    document.removeEventListener('keyup', this.handleKeyboardClick);
   }
 
   render() {
